@@ -1,9 +1,10 @@
-describe("User can navigate through courses", () => {
+describe("User can navigate", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000");
   });
 
-  describe("to /Workshops route", () => {
+  // WORKSHOPS
+  describe("to /Workshops route and it", () => {
     beforeEach(() => {
       cy.get("#workshops-tab").click();
     });
@@ -12,11 +13,12 @@ describe("User can navigate through courses", () => {
       cy.get("#SOMETHING").should("contain", "SOMETHING")
     })
 
-    it("component name should be in url", () => {
+    it("should contain component name in url", () => {
       cy.url().should("contain", "workshops-tab");
     });
   });
 
+  // TESTING
   describe("to /Testing route", () => {
     beforeEach(() => {
       cy.get("#testing-tab").click();
@@ -31,7 +33,7 @@ describe("User can navigate through courses", () => {
     });
   });
 
-
+  // VUE
   describe("to /Vue route", () => {
     beforeEach(() => {
       cy.get("#vue-tab").click();
@@ -46,6 +48,7 @@ describe("User can navigate through courses", () => {
     });
   });
 
+  // PRODUCTIVITY
   describe("to /Productivity route", () => {
     beforeEach(() => {
       cy.get("#productivity-tab").click();
@@ -60,6 +63,7 @@ describe("User can navigate through courses", () => {
     });
   });
 
+  // NODEREACT
   describe("to /NodeReact route", () => {
     beforeEach(() => {
       cy.get("#nodereact-tab").click();
@@ -74,12 +78,13 @@ describe("User can navigate through courses", () => {
     });
   });
 
-  describe("back to all Courses tab and it", () => {
+  // BACK
+  describe("back to landing page by clicking Craft Logo and it ", () => {
     beforeEach(() => {
       cy.get("#craftname-tab").click();
     });
 
-    it("should display all listed courses", () => {
+    it("should redirect and display all courses", () => {
       cy.get("#SOMETHING").should("contain", "SOMETHING");
     });
   });
